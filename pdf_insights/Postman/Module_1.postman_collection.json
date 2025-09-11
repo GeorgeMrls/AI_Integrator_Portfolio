@@ -1,0 +1,291 @@
+{
+	"info": {
+		"_postman_id": "d2aa270b-5677-495a-8312-8c2650548725",
+		"name": "Module_1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48252440",
+		"_collection_link": "https://georgiosmrls-9736258.postman.co/workspace/344ed4fe-9bb0-417a-861f-0a01b7c59b8c/collection/48252440-d2aa270b-5677-495a-8312-8c2650548725?action=share&source=collection_link&creator=48252440"
+	},
+	"item": [
+		{
+			"name": "JSONplaceholder",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts?userId=1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/posts?userId=1",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"posts"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 08 Sep 2025 16:06:39 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1002"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "access-control-allow-credentials",
+							"value": "true"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=43200"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"aa6-j2NSH739l9uq40OywFMn7Y0C/iY\""
+						},
+						{
+							"key": "expires",
+							"value": "-1"
+						},
+						{
+							"key": "nel",
+							"value": "{\"report_to\":\"heroku-nel\",\"response_headers\":[\"Via\"],\"max_age\":3600,\"success_fraction\":0.01,\"failure_fraction\":0.1}"
+						},
+						{
+							"key": "pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "report-to",
+							"value": "{\"group\":\"heroku-nel\",\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?s=SKGddEac9lGG8IPsZNnnxyT0jDOSj%2BA8%2FZqt76nueRA%3D\\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\\u0026ts=1757329966\"}],\"max_age\":3600}"
+						},
+						{
+							"key": "reporting-endpoints",
+							"value": "heroku-nel=\"https://nel.heroku.com/reports?s=SKGddEac9lGG8IPsZNnnxyT0jDOSj%2BA8%2FZqt76nueRA%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1757329966\""
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "vary",
+							"value": "Origin, Accept-Encoding"
+						},
+						{
+							"key": "via",
+							"value": "2.0 heroku-router"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-ratelimit-limit",
+							"value": "1000"
+						},
+						{
+							"key": "x-ratelimit-remaining",
+							"value": "999"
+						},
+						{
+							"key": "x-ratelimit-reset",
+							"value": "1757330009"
+						},
+						{
+							"key": "Age",
+							"value": "17633"
+						},
+						{
+							"key": "cf-cache-status",
+							"value": "HIT"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "97bfb1c20d9d990a-IAD"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"userId\": 1,\n        \"id\": 1,\n        \"title\": \"sunt aut facere repellat provident occaecati excepturi optio reprehenderit\",\n        \"body\": \"quia et suscipit\\nsuscipit recusandae consequuntur expedita et cum\\nreprehenderit molestiae ut ut quas totam\\nnostrum rerum est autem sunt rem eveniet architecto\"\n    },\n    {\n        \"userId\": 1,\n        \"id\": 2,\n        \"title\": \"qui est esse\",\n        \"body\": \"est rerum tempore vitae\\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\\nqui aperiam non debitis possimus qui neque nisi nulla\"\n    },\n    {\n        \"userId\": 1,\n        \"id\": 3,\n        \"title\": \"ea molestias quasi exercitationem repellat qui ipsa sit aut\",\n        \"body\": \"et iusto sed quo iure\\nvoluptatem occaecati omnis eligendi aut ad\\nvoluptatem doloribus vel accusantium quis pariatur\\nmolestiae porro eius odio et labore et velit aut\"\n    },\n    {\n        \"userId\": 1,\n        \"id\": 4,\n        \"title\": \"eum et est occaecati\",\n        \"body\": \"ullam et saepe reiciendis voluptatem adipisci\\nsit amet autem assumenda provident rerum culpa\\nquis hic commodi nesciunt rem tenetur doloremque ipsam iure\\nquis sunt voluptatem rerum illo velit\"\n    },\n    {\n        \"userId\": 1,\n        \"id\": 5,\n        \"title\": \"nesciunt quas odio\",\n        \"body\": \"repudiandae veniam quaerat sunt sed\\nalias aut fugiat sit autem sed est\\nvoluptatem omnis possimus esse voluptatibus quis\\nest aut tenetur dolor neque\"\n    },\n    {\n        \"userId\": 1,\n        \"id\": 6,\n        \"title\": \"dolorem eum magni eos aperiam quia\",\n        \"body\": \"ut aspernatur corporis harum nihil quis provident sequi\\nmollitia nobis aliquid molestiae\\nperspiciatis et ea nemo ab reprehenderit accusantium quas\\nvoluptate dolores velit et doloremque molestiae\"\n    },\n    {\n        \"userId\": 1,\n        \"id\": 7,\n        \"title\": \"magnam facilis autem\",\n        \"body\": \"dolore placeat quibusdam ea quo vitae\\nmagni quis enim qui quis quo nemo aut saepe\\nquidem repellat excepturi ut quia\\nsunt ut sequi eos ea sed quas\"\n    },\n    {\n        \"userId\": 1,\n        \"id\": 8,\n        \"title\": \"dolorem dolore est ipsam\",\n        \"body\": \"dignissimos aperiam dolorem qui eum\\nfacilis quibusdam animi sint suscipit qui sint possimus cum\\nquaerat magni maiores excepturi\\nipsam ut commodi dolor voluptatum modi aut vitae\"\n    },\n    {\n        \"userId\": 1,\n        \"id\": 9,\n        \"title\": \"nesciunt iure omnis dolorem tempora et accusantium\",\n        \"body\": \"consectetur animi nesciunt iure dolore\\nenim quia ad\\nveniam autem ut quam aut nobis\\net est aut quod aut provident voluptas autem voluptas\"\n    },\n    {\n        \"userId\": 1,\n        \"id\": 10,\n        \"title\": \"optio molestias id quia eum\",\n        \"body\": \"quo et expedita modi cum officia vel magni\\ndoloribus qui repudiandae\\nvero nisi sit\\nquos veniam quod sed accusamus veritatis error\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "METEO",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.open-meteo.com/v1/forecast?latitude=37.98&longitude=23.72&hourly=temperature_2m",
+					"protocol": "https",
+					"host": [
+						"api",
+						"open-meteo",
+						"com"
+					],
+					"path": [
+						"v1",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "latitude",
+							"value": "37.98"
+						},
+						{
+							"key": "longitude",
+							"value": "23.72"
+						},
+						{
+							"key": "hourly",
+							"value": "temperature_2m"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "METEO_env_vars",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Τρέχει ΜΕΤΑ την απόκριση (Post-res)",
+							"pm.test(\"Status is 200\", () => {",
+							"  pm.expect(pm.response.code).to.eql(200);",
+							"});",
+							"",
+							"pm.test(\"Body is JSON and has hourly.temperature_2m\", () => {",
+							"  let data;",
+							"  try { data = pm.response.json(); } catch (e) { data = null; }",
+							"  pm.expect(data).to.be.an(\"object\");",
+							"  pm.expect(data).to.have.property(\"hourly\");",
+							"  pm.expect(data.hourly).to.have.property(\"temperature_2m\");",
+							"  pm.expect(Array.isArray(data.hourly.temperature_2m)).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/forecast?latitude={{LAT}}&longitude={{LON}}&hourly=temperature_2m",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "latitude",
+							"value": "{{LAT}}"
+						},
+						{
+							"key": "longitude",
+							"value": "{{LON}}"
+						},
+						{
+							"key": "hourly",
+							"value": "temperature_2m"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL = https://api.open-meteo.com/v1",
+			"value": "LAT = 37.98"
+		},
+		{
+			"value": "LON = 23.72"
+		}
+	]
+}
