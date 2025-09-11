@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+*.log
+pdf_insights/data/*.json
+.DS_Store
