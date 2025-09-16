@@ -1,7 +1,10 @@
 .venv/
+venv/
 __pycache__/
 *.pyc
 .env
 *.log
-pdf_insights/data/*.json
+pdf_insights/src/data/*.json
+# macOS junk
 .DS_Store
+**/.DS_Store
