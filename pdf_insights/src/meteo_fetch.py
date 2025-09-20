@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 import argparse
 import logging
+import csv
 
 # Base
 BASE_URL = "https://api.open-meteo.com/v1/forecast"
@@ -19,6 +20,7 @@ def parse_args():
     )
     parser.add_argument("--hours", type=int, help="limit forecast to N hours ahead")
     parser.add_argument("--verbose", action="store_true", help="Enable detailed logs")
+    parser.add_argument("--format", choices=["json", "csv"], default="json", help="Output format (default: json)")
     return parser.parse_args()
 
 if __name__ == "__main__":
@@ -53,8 +55,27 @@ if __name__ == "__main__":
 
     output_f = args.out
     output_f.parent.mkdir(parents=True, exist_ok=True)
+   
+if args.format == "json":
+    # JSON save
     with output_f.open("w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
+    logging.info("Saved JSON to %s", output_f)
 
-    logging.info("Saved to %s", output_f)
-    print(f"Data saved to {output_f}")
+else:  # CSV
+    if output_f.suffix.lower() != ".csv":
+        output_f = output_f.with_suffix(".csv")
+
+    try:
+        times = data["hourly"]["time"]
+        temps = data["hourly"]["temperature_2m"]
+    except KeyError:
+        logging.error("Hourly payload missing 'time' or 'temperature_2m'; cannot write CSV")
+        raise SystemExit(1)
+
+    with output_f.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["time", "temperature_2m"])
+        writer.writerows(zip(times, temps))
+
+    logging.info("Saved CSV to %s", output_f)
