@@ -9,22 +9,6 @@ import csv
 BASE_URL = "https://api.open-meteo.com/v1/forecast"
 GEOCODE_URL = "https://geocoding-api.open-meteo.com/v1/search"
 
-def resolve_city_to_coords(city, country=None):
-    """Call Open-Meteo geocoding API and return (lat, lon)."""
-    params = {"name": city}
-    if country:
-        params["country"] = country
-
-    resp = requests.get("https://geocoding-api.open-meteo.com/v1/search", params=params, timeout=10)
-    resp.raise_for_status()
-    results = resp.json().get("results")
-    if not results:
-        raise ValueError(f"No geocoding results for {city}, {country or ''}")
-    
-    # Παίρνουμε το πρώτο αποτέλεσμα
-    best = results[0]
-    return best["latitude"], best["longitude"]
-
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Fetch Open-Meteo forecast and save JSON")
@@ -53,6 +37,24 @@ def parse_args():
     parser.add_argument("--verbose", action="store_true", help="Enable detailed logs")
     parser.add_argument("--format", choices=["json", "csv", "both"], default="json", help="Output format json, csv or both (default: json)")
     return parser.parse_args()
+
+def resolve_city_to_coords(city, country=None):
+    """Call Open-Meteo geocoding API and return (lat, lon)."""
+    params = {"name": city}
+    if country:
+        params["country"] = country
+
+    resp = requests.get("https://geocoding-api.open-meteo.com/v1/search", params=params, timeout=10)
+    resp.raise_for_status()
+    results = resp.json().get("results")
+    if not results:
+        raise ValueError(f"No geocoding results for {city}, {country or ''}")
+    
+    # Παίρνουμε το πρώτο αποτέλεσμα
+    best = results[0]
+    return best["latitude"], best["longitude"]
+
+
 
 if __name__ == "__main__":
     args = parse_args()
