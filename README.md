@@ -1,49 +1,33 @@
-# AI Integrator Portfolio
-# PDF Insights – AI Integrator Portfolio
 
-A simple Python tool that fetches Athens weather data from the Open-Meteo API and saves it as JSON.  
-This project demonstrates API integration, project structuring, and version control with Git.
 
----
+# Weather Insights 🌦️
 
-## Features
-- Fetch weather data via Open-Meteo API  
-- Save output to `src/data/athens_weather.json`  
-- Clear folder structure for learning and extension  
+A small CLI tool that fetches weather data from [Open-Meteo](https://open-meteo.com/) and can export it to **JSON/CSV** or even create a short **AI-generated weather report** with OpenAI.
 
 ---
 
-## Project Structure
-pdf_insights/
-├── Postman/               # Postman collections
-├── src/
-│   ├── meteo_fetch.py     # Main script
-│   └── data/              # JSON output
-├── requirements.txt       # Python dependencies
-└── README.md
+## What it does
+- Look up a **city + country** → get forecast automatically  
+- Save results as **JSON**, **CSV**, or **both**  
+- Show simple stats (min / max / average temperature)  
+- Optionally: let an **LLM** write a short summary  
 
 ---
 
-## Quick Start
-```bash
-# Clone the repo
-git clone https://github.com/GeorgeMrls/AI_Integrator_Portfolio.git
+## How to run
+1. Create a virtual environment & install requirements:
+   ```bash
+   python3.12 -m venv venv312
+   source venv312/bin/activate
+   pip install -r src/requirements.txt
 
-# Navigate to project
-cd AI_Integrator_Portfolio/pdf_insights
+   Set your OpenAi key to reports:
+   export OPENAI_API_KEY="your_api_key_here"
 
-# Create and activate virtual environment
-python3 -m venv venv
-source venv/bin/activate  # macOS/Linux
-# or
-venv\Scripts\activate     # Windows
+   Run
+   python src/meteo_fetch.py --city Athens --country GR --format both --report llm
 
-# Install dependencies
-pip install -r requirements.txt
-
-# Run script
-python src/meteo_fetch.py
-
-# The script generates
-src/data/athens_weather.json
-'''
+Example output
+	•	athens_weather.json
+	•	athens_weather.csv
+	•	athens_weather.md (AI summary)

@@ -4,12 +4,14 @@ __pycache__/
 *.pyc
 .env
 *.log
-pdf_insights/src/data/*.json
+
+
 # macOS junk
 .DS_Store
 **/.DS_Store
 
+
 # project-specific ignores
-pdf_insights/venv/
-pdf_insights/venv312/
-pdf_insights/src/data/
+weather_insights/venv/
+weather_insights/venv312/
+weather_insights/src/data/
