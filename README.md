@@ -15,38 +15,38 @@ A simple CLI tool that fetches weather forecasts using the [Open-Meteo API](http
 
 
 
-## Installation
+# Installation
 
- # Clone the repository:
+ ## Clone the repository:
    git clone https://github.com/GeorgeMrls/AI_Integrator_Portfolio.git
    cd AI_Integrator_Portfolio/weather_insights
 
- # Create and activate a virtual environment:
+ ## Create and activate a virtual environment:
   python3.12 -m venv venv312
   source venv312/bin/activate
 
- # Install dependencies:
+ ## Install dependencies:
   pip install -r src/requirements.txt
 
- # Set your OpenAI API key (only required for LLM reports):
+ ## Set your OpenAI API key (only required for LLM reports):
   export OPENAI_API_KEY="your_api_key_here"
 
 
 
-## Usage
+# Usage
 
-  # Basic example
+  ## Basic example
   python src/meteo_fetch.py --city Athens --country GR --format both
 
-  # Limit forecast hours
+  ## Limit forecast hours
   python src/meteo_fetch.py --city Thessaloniki --country GR --hours 12 --format json
 
-  # Generate an LLM report
+  ## Generate an LLM report
   python src/meteo_fetch.py --city Athens --country GR --report llm --format both
 
 
 
-## Arguments
+# Arguments
 	•	--city (required) → City name (e.g., Athens)
 	•	--country (required) → ISO-2 country code (e.g., GR, US)
 	•	--hours → Limit forecast to N hours (optional ready for action in the code)
