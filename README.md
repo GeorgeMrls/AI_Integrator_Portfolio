@@ -15,8 +15,8 @@ A small CLI tool that fetches weather data from [Open-Meteo](https://open-meteo.
 ---
 
 ## How to run
-1. Create a virtual environment & install requirements:
-   ```bash
+ Create a virtual environment & install requirements:
+   
    python3.12 -m venv venv312
    source venv312/bin/activate
    pip install -r src/requirements.txt
