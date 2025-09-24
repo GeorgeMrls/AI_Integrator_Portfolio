@@ -14,3 +14,6 @@ outputs/
 
 # VS Code settings (optional)
 .vscode/
+
+# .env for API_KEY safety
+.env
