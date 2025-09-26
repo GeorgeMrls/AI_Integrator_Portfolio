@@ -1,0 +1,6 @@
+{
+    "id": "002_complaint",
+    "from": "john@example.com",
+    "subject": "Defective product received",
+    "body": "Good afternoon, I received product Y last week but it stopped working after 2 days. I would like a refund or replacement."
+  }

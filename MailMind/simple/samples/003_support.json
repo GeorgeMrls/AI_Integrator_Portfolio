@@ -1,0 +1,6 @@
+{
+    "id": "003_support",
+    "from": "elena@example.com",
+    "subject": "Account access issue",
+    "body": "Hi team, I can't log in to my account even after resetting the password. Can you help me regain access?"
+  }

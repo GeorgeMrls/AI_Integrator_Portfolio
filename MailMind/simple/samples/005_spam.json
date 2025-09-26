@@ -1,0 +1,6 @@
+{
+    "id": "005_spam",
+    "from": "lottery@scamworld.com",
+    "subject": "You have won $1,000,000!",
+    "body": "Congratulations! You have been selected as the winner of $1,000,000. Please send your bank details to claim."
+  }

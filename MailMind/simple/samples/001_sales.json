@@ -1,0 +1,6 @@
+{
+    "id": "001_sales",
+    "from": "maria@example.com",
+    "subject": "Inquiry about product X",
+    "body": "Hello, I'm interested in product X. Could you provide shipping options to Europe and pricing details?"
+  }
