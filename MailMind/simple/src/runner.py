@@ -2,12 +2,55 @@ from pathlib import Path
 import sys
 import json
 from datetime import datetime
+from dotenv import load_dotenv
+import os
+from openai import OpenAI
 
+load_dotenv()
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+if not OPENAI_API_KEY:
+    print("Missing OPENAI_API_KEY in your .env")
+    sys.exit(1)
+
+client = OpenAI(api_key=OPENAI_API_KEY)
+MODEL = "gpt-4o-mini"
 
 ROOT = Path(__file__).resolve().parents[1]
 SAMPLES_DIR = ROOT / "samples"
 OUTPUTS_DIR = ROOT / "outputs"
 TEMPLATE_PATH = Path(__file__).resolve().parent / "prompt_template.txt"
+
+def call_lmm(prompt_text: str) -> dict:
+    """Sends the filled prompt to the LLM and expects a strict JSON object back.
+    Returns a Python dict (parsed), or a safe fallback dict on error."""
+
+    try:
+        resp = client.chat.completion.create(
+            model = MODEL,
+            messages=[
+                {"role": "system", "content": "You are a careful JSON-only email triage assistant."},
+                {"role": "user", "content": prompt_text},
+            ],
+            temperature=0.2,
+            response_format={"type":"json_object"},
+        )
+        content = resp.choices[0].message.content  # JSON string
+        return json.loads(content)  # dict
+    except Exception as e:
+        # Safe fallback if model returns bad JSON or any error occurs
+        return {
+            "schema_version": "v1",
+            "id": "unknown",
+            "category": "other",
+            "priority": "medium",
+            "action": "route",
+            "confidence": 0.0,
+            "key_points": [],
+            "draft_reply": "",
+            "error": f"{type(e).__name__}: {e}"
+        }
+
 
 def main() -> int:
     # Ensure folders exist
@@ -58,7 +101,7 @@ def main() -> int:
     print("===== This is the end =====\n")
     
     # loop all samples and write JSONL Log
-    run_id = datetime.now().strftime("run_%d/%m/%Y_%H%:M%:S")
+    run_id = datetime.now().strftime("run_%Y-%m-%d_%H-%M-%S")
     log_path = OUTPUTS_DIR / f"{run_id}.jsonl"
 
     with log_path.open("w", encoding="utf-8") as f:
