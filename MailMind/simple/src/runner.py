@@ -151,14 +151,6 @@ def main() -> int:
     print(f"\nAll prompts written to {log_path}")
     return 0
 
-    
-
-
-
-
-
-
-
 
 if __name__ == "__main__":
     sys.exit(main())
