@@ -9,19 +9,19 @@ It processes sample emails in JSON, generates structured outputs (category, prio
 
 MailMind/
 └── simple/
-├── samples/              # Example input emails in JSON
-├── outputs/              # LLM responses written as JSONL logs
+├── samples/                            # Example input emails in JSON
+├── outputs/                            # LLM responses written as JSONL logs
 ├── src/
-│   ├── runner.py         # Main script (loop + LLM call)
-│   └── prompt_template.txt # Template prompt for the LLM
-└── README.md             # You are here
+│   ├── runner.py                       # Main script (loop + LLM call)
+│   └── prompt_template.txt             # Template prompt for the LLM
+└── README.md                           # You are here
 
 ---
 
 ## ⚙️ Setup
 
 1. **Clone repository & move into folder**
-   git clone <your_repo_url>
+   git clone <https://github.com/GeorgeMrls/AI_Integrator_Portfolio/tree/main/MailMind>
    cd MailMind/simple
 
 
