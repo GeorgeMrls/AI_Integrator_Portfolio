@@ -21,12 +21,12 @@ SAMPLES_DIR = ROOT / "samples"
 OUTPUTS_DIR = ROOT / "outputs"
 TEMPLATE_PATH = Path(__file__).resolve().parent / "prompt_template.txt"
 
-def call_lmm(prompt_text: str) -> dict:
+def call_llm(prompt_text: str) -> dict:
     """Sends the filled prompt to the LLM and expects a strict JSON object back.
     Returns a Python dict (parsed), or a safe fallback dict on error."""
 
     try:
-        resp = client.chat.completion.create(
+        resp = client.chat.completions.create(
             model = MODEL,
             messages=[
                 {"role": "system", "content": "You are a careful JSON-only email triage assistant."},
@@ -112,31 +112,42 @@ def main() -> int:
                 print(f"[{sample_path.name}] JSON read error: {e}")
                 continue
 
-        sid = record.get("id", sample_path.stem)
-        subj = record.get("subject", "")
-        bod = record.get("body", "")
+            sid = record.get("id", sample_path.stem)
+            subj = record.get("subject", "")
+            bod = record.get("body", "")
 
-        # reuse the same template_text you loaded earlier
-        filled = (
-            template_text
-            .replace("{{id}}", str(sid))
-            .replace("{{subject}}", subj)
-            .replace("{{body}}", bod)
-        )
+            # reuse the same template_text you loaded earlier
+            filled = (
+                template_text
+                .replace("{{id}}", str(sid))
+                .replace("{{subject}}", subj)
+                .replace("{{body}}", bod)
+            )
 
-        out_record = {
-            "input": record,
-            "prompt": filled,
-            "meta": {
-                "run_id": run_id,
-                "schema_version": "v1",
-                "timestamp": datetime.now().isoformat(timespec="seconds")
+            llm_output = call_llm(filled)
+
+            out_record = {
+                "input": record,
+                "prompt": filled,
+                "output": llm_output,
+                "meta": {
+                    "run_id": run_id,
+                    "schema_version": "v1",
+                    "timestamp": datetime.now().isoformat(timespec="seconds")
+                }
             }
-        }
 
-        f.write(json.dumps(out_record, ensure_ascii=False) + "\n")
-        print(f"[{sid}] prompt ready (len={len(filled)} chars)")
-    
+            f.write(json.dumps(out_record, ensure_ascii=False) + "\n")
+            print(f"[{sid}] prompt ready (len={len(filled)} chars)")
+        
+            cat = llm_output.get("category", "other")
+            pri = llm_output.get("priority", "medium")
+            act = llm_output.get("action", "route")
+            conf = llm_output.get("confidence", 0.0)
+            print(f"[{sid}] category={cat} priority={pri} action={act} conf={conf}")
+
+
+
     print(f"\nAll prompts written to {log_path}")
     return 0
 
@@ -151,4 +162,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-    # Read the first sample JSON
